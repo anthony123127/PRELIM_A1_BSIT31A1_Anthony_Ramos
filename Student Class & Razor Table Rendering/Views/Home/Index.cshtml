@@ -1,0 +1,66 @@
+﻿@using Student_Class___Razor_Table_Rendering.Models;
+@{
+    ViewData["Title"] = "Student Table";
+
+    List<Student> students = new List<Student>();
+
+    var s1 = new Student("Anthony", "Ramos");
+    s1.Title = "Mr."; s1.Course = "BSIT"; s1.Section = "22M1"; s1.Birthday = new DateTime(2002, 5, 10); s1.SetGender(Gender.Male);
+
+    var s2 = new Student("Jane", "Smith");
+    s2.Title = "Ms."; s2.Course = "BSIT"; s2.Section = "22M1"; s2.Birthday = new DateTime(2003, 3, 25); s2.SetGender(Gender.Female);
+
+    var s3 = new Student("John", "Doe");
+    s3.Title = "Mr."; s3.Course = "BSIT"; s3.Section = "22M1"; s3.Birthday = new DateTime(2001, 2, 15); s3.SetGender(Gender.Male);
+
+    var s4 = new Student("Alice", "Brown");
+    s4.Title = "Ms."; s4.Course = "BSIT"; s4.Section = "22M1"; s4.Birthday = new DateTime(2002, 7, 5); s4.SetGender(Gender.Female);
+
+    var s5 = new Student("Mark", "Lopez");
+    s5.Title = "Mr."; s5.Course = "BSIT"; s5.Section = "22M1"; s5.Birthday = new DateTime(2001, 8, 12); s5.SetGender(Gender.Male);
+
+    var s6 = new Student("Ella", "Johnson");
+    s6.Title = "Ms."; s6.Course = "BSIT"; s6.Section = "22M1"; s6.Birthday = new DateTime(2003, 11, 30); s6.SetGender(Gender.Female);
+
+    var s7 = new Student("Leo", "Garcia");
+    s7.Title = "Mr."; s7.Course = "BSIT"; s7.Section = "22M1"; s7.Birthday = new DateTime(2002, 4, 1); s7.SetGender(Gender.Male);
+
+    var s8 = new Student("Mia", "Cruz");
+    s8.Title = "Ms."; s8.Course = "BSIT"; s8.Section = "22M1"; s8.Birthday = new DateTime(2003, 9, 18); s8.SetGender(Gender.Female);
+
+    var s9 = new Student("Noah", "Reyes");
+    s9.Title = "Mr."; s9.Course = "BSIT"; s9.Section = "22M1"; s9.Birthday = new DateTime(2001, 12, 9); s9.SetGender(Gender.Male);
+
+    var s10 = new Student("Luna", "Torres");
+    s10.Title = "Ms."; s10.Course = "BSIT"; s10.Section = "22M1"; s10.Birthday = new DateTime(2004, 6, 21); s10.SetGender(Gender.Female);
+
+    students.AddRange(new[] { s1, s2, s3, s4, s5, s6, s7, s8, s9, s10 });
+}
+
+<h2>Student Table</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Full Name</th>
+            <th>Gender</th>
+            <th>Course</th>
+            <th>Section</th>
+            <th>Birthday</th>
+            <th>Age</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var student in students)
+        {
+            <tr>
+                <td>@student.FullName</td>
+                <td>@student.Gender</td>
+                <td>@student.Course</td>
+                <td>@student.Section</td>
+                <td>@student.Birthday.ToString("yyyy-MM-dd")</td>
+                <td>@student.Age</td>
+            </tr>
+        }
+    </tbody>
+</table>
